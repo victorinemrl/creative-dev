@@ -10,6 +10,7 @@
 
 <script>
 import Menu from '@/components/Menu.vue'
+
 export default {
   name: 'SideBar',
   components: {

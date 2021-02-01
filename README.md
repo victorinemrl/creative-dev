@@ -1,4 +1,4 @@
-# projet
+# Creative dev project
 
 ## Project setup
 ```

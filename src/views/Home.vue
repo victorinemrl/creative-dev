@@ -38,6 +38,7 @@ export default {
       width: 25vw;
       #learnMoreButton{
         width:50%;
+        z-index:8;
         border-radius: 0;
         border-width: 3px;
       }
