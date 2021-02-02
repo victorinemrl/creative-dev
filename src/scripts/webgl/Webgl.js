@@ -40,9 +40,6 @@ export default class Webgl {
     plane.position.y += 0.5
     this.scene.add(plane)
 
-    const dots = new Dots(+0.5, -1.2)
-    dots.createDots().forEach(Element => this.scene.add(Element))
-
     geometry = new CircleGeometry(1, 32)
     material = new MeshBasicMaterial({ color: 0xFCE1DD })
     let circle = new Mesh(geometry, material)
@@ -61,7 +58,10 @@ export default class Webgl {
     circle.position.y -= 2.5
     this.scene.add(circle)
 
-    map = new TextureLoader().load(require('@/assets/' + 'silhouette' + '.png'))
+    const dots = new Dots(+0.5, -1.2)
+    dots.createDots().forEach(Element => this.scene.add(Element))
+
+    map = new TextureLoader().load(require('@/assets/silhouette.png'))
     material = new SpriteMaterial({ map: map, color: 0xffffff })
     sprite = new Sprite(material)
     sprite.scale.set(2.5, 7.5, 1)

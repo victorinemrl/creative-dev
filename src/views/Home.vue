@@ -7,7 +7,7 @@
         <h1>Inside out</h1>
         <h2>International conference on illustration</h2>
         <h3>2018 September 25-28</h3>
-        <vs-button type="border" color="#7EA58A" id="learnMoreButton"> Learn More</vs-button>
+        <vs-button type="border" color="#7EA58A" id="learnMoreButton" v-on:click="goToAbout">Learn More</vs-button>
       </div>
     </div>
   </div>
@@ -16,17 +16,23 @@
 <script>
 import SideBar from '@/components/SideBar.vue'
 import HomeCanvas from '@/components/HomeCanvas.vue'
+import router from '../router/index'
 export default {
   name: 'Home',
   components: {
     SideBar,
     HomeCanvas
+  },
+  methods: {
+    goToAbout: () => {
+      console.log('coucou')
+      router.push({ name: 'About' })
+    }
   }
 }
 </script>
 <style scoped lang="scss">
 .home {
-  font-family: 'Noto Sans TC', sans-serif;
   height: 100%;
   width: 100vh;
   display: flex;
@@ -45,6 +51,7 @@ export default {
       }
       h2{
         font-weight: normal;
+        margin-top: 2%;
       }
       h3{
         margin-top: 10vh;

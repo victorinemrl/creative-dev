@@ -3,11 +3,11 @@
     <vs-button type="filled" color="#342D35" id="getTicketButton"> Get Ticket</vs-button>
     <div class="menuContent">
         <ul id="menuItem">
+            <li><a href="">Home</a></li>
             <li><a href="">About</a></li>
             <li><a href="">Workshop</a></li>
             <li><a href="">Designers</a></li>
             <li><a href="">Schedule</a></li>
-            <li><a href="">Venue</a></li>
         </ul>
         <div id="footer">
             <div>

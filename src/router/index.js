@@ -3,7 +3,6 @@ import VueRouter from 'vue-router'
 
 import Home from '../views/Home.vue'
 import About from '../views/About.vue'
-import Workshop from '../views/Workshop.vue'
 
 Vue.use(VueRouter)
 
@@ -17,11 +16,6 @@ const routes = [
     path: '/about',
     name: 'About',
     component: About
-  },
-  {
-    path: '/workshop',
-    name: 'Workshop',
-    component: Workshop
   }
 ]
 

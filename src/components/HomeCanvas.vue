@@ -17,5 +17,7 @@ export default {
 <style scoped lang="scss">
     .homeCanvas{
         position: absolute;
+        top: 0;
+        left: 0;
     }
 </style>

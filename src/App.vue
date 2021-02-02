@@ -8,6 +8,6 @@
   html, body{
     margin: 0;
     padding: 0;
-    overflow-x: hidden;
+    font-family: 'Noto Sans TC', sans-serif;
   }
 </style>
