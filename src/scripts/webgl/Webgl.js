@@ -1,4 +1,5 @@
 import { Scene, PerspectiveCamera, WebGLRenderer, AmbientLight, SpotLight, TextureLoader, SpriteMaterial, Sprite, PlaneGeometry, MeshBasicMaterial, Mesh, CircleGeometry } from 'three'
+import Dots from './objects/dots/Dots'
 
 export default class Webgl {
   constructor () {
@@ -17,23 +18,16 @@ export default class Webgl {
     this.scene.add(this.spotlight)
     this.camera.position.z = 5
 
-    let map = new TextureLoader().load(require('@/assets/' + 'dots' + '.png'))
-    let material = new SpriteMaterial({ map: map, color: 0xffffff })
-    let sprite = new Sprite(material)
-    sprite.scale.set(3, 3, 1)
-    sprite.position.x += 2
-    this.scene.add(sprite)
-
     let geometry = new PlaneGeometry(2, 2, 2)
-    material = new MeshBasicMaterial({ color: 0x7ea58a })
+    let material = new MeshBasicMaterial({ color: 0x7ea58a })
     let plane = new Mesh(geometry, material)
     plane.position.x += 3
     plane.position.y -= 1
     this.scene.add(plane)
 
-    map = new TextureLoader().load(require('@/assets/' + 'paint' + '.png'))
+    let map = new TextureLoader().load(require('@/assets/' + 'paint' + '.png'))
     material = new SpriteMaterial({ map: map, color: 0xffffff })
-    sprite = new Sprite(material)
+    let sprite = new Sprite(material)
     sprite.scale.set(5.5, 5.5, 1)
     sprite.position.x += 3
     sprite.position.y -= 0.5
@@ -45,6 +39,9 @@ export default class Webgl {
     plane.position.x += 0.5
     plane.position.y += 0.5
     this.scene.add(plane)
+
+    const dots = new Dots(+0.5, -1.2)
+    dots.createDots().forEach(Element => this.scene.add(Element))
 
     geometry = new CircleGeometry(1, 32)
     material = new MeshBasicMaterial({ color: 0xFCE1DD })
@@ -67,7 +64,7 @@ export default class Webgl {
     map = new TextureLoader().load(require('@/assets/' + 'silhouette' + '.png'))
     material = new SpriteMaterial({ map: map, color: 0xffffff })
     sprite = new Sprite(material)
-    sprite.scale.set(2.5, 6.5, 1)
+    sprite.scale.set(2.5, 7.5, 1)
     sprite.position.x += 2
     this.scene.add(sprite)
     this.time = 0

@@ -26,6 +26,7 @@ export default {
 </script>
 <style scoped lang="scss">
 .home {
+  font-family: 'Noto Sans TC', sans-serif;
   height: 100%;
   width: 100vh;
   display: flex;
@@ -40,6 +41,7 @@ export default {
       z-index: 3;
       h1{
         font-size: 8vw;
+        line-height: 83%;
       }
       h2{
         font-weight: normal;
