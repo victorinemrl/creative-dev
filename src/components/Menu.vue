@@ -73,6 +73,12 @@ export default {
                 letter-spacing: 3px;
                 a{
                     color:#342D35;
+                    background: linear-gradient(to top, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 40%, transparent 5px) no-repeat;
+                    background-size: 0 100%;
+                    transition: background-size .5s;
+                }
+                a:hover{
+                    background-size: 100% 100%;
                 }
             }
         }
