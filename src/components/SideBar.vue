@@ -43,6 +43,7 @@ export default {
         z-index: 10;
         width: 4vw;
         height:100vh;
+        background-color:white ;
         box-shadow: 1px 0px 5px #6A646B;
         text-align: center;
         display: flex;
