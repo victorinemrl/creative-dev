@@ -78,3 +78,13 @@ export const designersHover = () => {
     })
   }, false))
 }
+export const burgerAnimation = () => {
+  const burger = document.querySelector('.burger')
+  const menu = document.querySelector('.menu')
+  burger.addEventListener('click', () => {
+    burger.classList.toggle('active')
+    menu.classList.toggle('hide')
+    document.querySelector('.sideBarContent').classList.toggle('pinkBg')
+    console.log(burger.classList)
+  })
+}
