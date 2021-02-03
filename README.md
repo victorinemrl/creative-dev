@@ -11,8 +11,8 @@ npm install three
 npm install vuesax
 ```
 
-## Animations
-The animations are made with vanilla JavaScript and CSS.
+## Animations and transitions
+The animations and transitions are made with vanilla JavaScript and CSS.
 
 ## Project setup
 ```
