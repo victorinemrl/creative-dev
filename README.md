@@ -1,4 +1,15 @@
 # Creative dev project
+Project realized for the *creative dev* class at IMAC engineering school using Vue.js. The design is largely inspired by this landing page  design https://www.pinterest.fr/pin/857935797756396915/.
+
+## Library use
+* **Three.js** : for the home page interactive canvas
+```
+npm install three
+```
+* **vuesax** : for buttons and inputs
+```
+npm install vuesax
+```
 
 ## Project setup
 ```
