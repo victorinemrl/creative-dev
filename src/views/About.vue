@@ -141,5 +141,11 @@ export default {
         transition-delay: 0.3s;
     }
   }
+  @media (max-width: 300px) {
+    img{
+      display: none;
+    }
+    /* etc. */
+  }
 }
 </style>

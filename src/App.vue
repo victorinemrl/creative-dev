@@ -3,7 +3,8 @@
     <router-view name="default" />
   </div>
 </template>
-
+<script>
+</script>
 <style lang="scss">
   html, body{
     margin: 0;
