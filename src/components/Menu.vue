@@ -114,4 +114,45 @@ export default {
         }
     }
 }
+@media only screen and (min-width: 300px) and (max-width: 900px){
+    .menu{
+        #getTicketButton{
+            left:60%;
+            width: 30%;
+        }
+        .menuContent{
+            width: 80vw;
+            #menuItem{
+                width: 100%;
+                font-size: large;
+                margin-left:3%;
+                li{
+                    letter-spacing: 0px;
+                }
+            }
+            #footer{
+                width: 100%;
+                font-size: x-small;
+                margin-left: 6vw;
+                .footerSubtitle{
+                    font-size: small;
+                }
+            }
+        }
+    }
+}
+@media only screen and (max-width: 400px){
+    .menu{
+        .menuContent{
+            #menuItem{
+                margin-top: 10vh;
+            }
+            display: flex;
+            flex-direction: column;
+            #footer{
+                margin-top: 3vh;
+            }
+        }
+    }
+}
 </style>

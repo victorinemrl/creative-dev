@@ -81,7 +81,7 @@ export default {
 <style scoped lang="scss">
 .about {
   height: 100%;
-  width: 100vh;
+  width: 100vw;
   display: flex;
   flex-direction: row;
 
@@ -130,7 +130,7 @@ export default {
       margin-top: 15vh;
       img{
         height: 80vh;
-        margin-left: 5vw;
+        margin-left: 4vw;
       }
     }
   }
@@ -141,11 +141,25 @@ export default {
         transition-delay: 0.3s;
     }
   }
-  @media (max-width: 300px) {
-    img{
-      display: none;
+}
+@media only screen and (min-width: 300px) and (max-width: 900px){
+  .about{
+    background-image: url("../assets/bg.png");
+    background-repeat: no-repeat;
+    background-position: bottom 4% right 1%;
+    background-size: 60%;
+
+    .aboutPageContent{
+      .aboutPageImg{
+        display: none;
+      }
+      .aboutPageText{
+        width: 60vw;
+        h1{
+          font-size: xx-large;
+        }
+      }
     }
-    /* etc. */
   }
 }
 </style>

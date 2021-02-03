@@ -49,7 +49,7 @@ export default {
 <style scoped lang="scss">
 .home {
   height: 100%;
-  width: 100vh;
+  width: 100vw;
   display: flex;
   flex-direction: row;
   .homeContent{
@@ -89,6 +89,33 @@ export default {
      &--appear {
         opacity: 1;
         transition-delay: 0.3s;
+    }
+  }
+}
+@media only screen and (min-width: 300px) and (max-width: 900px){
+  .home{
+    background-image: url("../assets/bg.png");
+    background-repeat: no-repeat;
+    background-position: bottom 4% right 1%;
+    background-size: 80%;
+    .homeContent{
+      margin-top: 15vh;
+      .homeCanvas{
+        display: none;
+      }
+      .homeContentText{
+        width: 70vw;
+        margin-left:10vw;
+        h1{
+          font-size: xxx-large;
+        }
+        #learnMoreButton{
+          width:100%;
+          z-index:8;
+          border-radius: 0;
+          border-width: 3px;
+        }
+      }
     }
   }
 }

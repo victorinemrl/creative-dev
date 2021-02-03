@@ -76,7 +76,7 @@ export default class Webgl {
 
     window.addEventListener('resize', this.onResize)
     window.addEventListener('mousemove', this.onMouseMove, false)
-    window.addEventListener('mouseover', this.select, false)
+    window.addEventListener('click', this.select, false)
   }
 
   onMouseMove (event) {
@@ -90,11 +90,18 @@ export default class Webgl {
     // calculate objects intersecting the picking ray
     const intersects = this.raycaster.intersectObjects(this.scene.children)
     for (let i = 0; i < intersects.length; i++) {
+      console.log(right)
       if (right) {
+        if (intersects[i].object.position.x > 6) {
+          intersects[i].object.position.x -= 1
+          right = true
+        }
         intersects[i].object.position.x += 1
+        console.log(intersects[i].object.position.x)
         right = false
       } else {
         intersects[i].object.position.x -= 1
+        right = true
       }
     }
   }
