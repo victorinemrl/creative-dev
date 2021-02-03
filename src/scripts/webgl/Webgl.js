@@ -2,6 +2,7 @@ import { Scene, PerspectiveCamera, WebGLRenderer, AmbientLight, SpotLight, Textu
 import Dots from './objects/dots/Dots'
 
 export default class Webgl {
+  // set up of the scene with all the element
   constructor () {
     this.start = this.start.bind(this)
     this.onResize = this.onResize.bind(this)
@@ -79,25 +80,25 @@ export default class Webgl {
     window.addEventListener('click', this.select, false)
   }
 
+  // update the position of the mouse when it moves
   onMouseMove (event) {
     this.mouse.x = (event.clientX / window.innerWidth) * 2 - 1
     this.mouse.y = -(event.clientY / window.innerHeight) * 2 + 1
   }
 
+  // selection of elements in the scene
   select (event) {
     this.raycaster.setFromCamera(this.mouse, this.camera)
     let right = true
     // calculate objects intersecting the picking ray
     const intersects = this.raycaster.intersectObjects(this.scene.children)
     for (let i = 0; i < intersects.length; i++) {
-      console.log(right)
       if (right) {
         if (intersects[i].object.position.x > 6) {
           intersects[i].object.position.x -= 1
           right = true
         }
         intersects[i].object.position.x += 1
-        console.log(intersects[i].object.position.x)
         right = false
       } else {
         intersects[i].object.position.x -= 1
@@ -106,6 +107,7 @@ export default class Webgl {
     }
   }
 
+  // makes the canvas resizable
   onResize () {
     this.camera.aspect = window.innerWidth / window.innerHeight
     this.camera.updateProjectionMatrix()

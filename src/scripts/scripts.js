@@ -2,6 +2,7 @@ import woman from '@/assets/woman.png'
 import man from '@/assets/man.png'
 import bg from '@/assets/bg.png'
 
+// method that manages the over event on the about page
 export const designersHover = () => {
   const allDesigners = document.querySelectorAll('.designers')
   console.log(allDesigners)
@@ -80,6 +81,7 @@ export const designersHover = () => {
     })
   }, false))
 }
+// method that manages the buger animation : from a buger to a cross and vice-versa
 export const burgerAnimation = () => {
   const burger = document.querySelector('.burger')
   const menu = document.querySelector('.menu')
@@ -91,6 +93,7 @@ export const burgerAnimation = () => {
     document.querySelector('.sideBarContent').classList.toggle('pinkBg')
   })
 }
+// method that manages all the menu animations
 export const menuAnimation = () => {
   const menuItem = document.querySelectorAll('#menuItem li a')
   const burger = document.querySelector('.burger')
@@ -103,7 +106,7 @@ export const menuAnimation = () => {
     document.querySelector('.sideBarContent').classList.toggle('pinkBg')
   }))
 }
-
+// method that manages the view apparition and desapparition
 export const viewApparition = () => {
   const view = document.querySelector('.view')
   setTimeout(function () { view.classList.toggle('view--appear') }, 1000)
