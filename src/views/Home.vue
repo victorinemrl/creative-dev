@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <SideBar ref="sideBar"/>
+    <SideBar ref="sideBar" currentPage="home"/>
     <div class="homeContent view">
       <HomeCanvas ref="homeCanvas"/>
       <div class="homeContentText">
@@ -24,6 +24,11 @@ export default {
     SideBar,
     HomeCanvas
   },
+  data () {
+    return {
+      name: 'Home'
+    }
+  },
   methods: {
     goToAbout: () => {
       viewApparition()
@@ -31,6 +36,12 @@ export default {
     }
   },
   mounted: function () {
+    const currentLocation = this.name
+    document.querySelectorAll('#menuItem a').forEach(element => {
+      if (element.innerHTML === currentLocation) {
+        element.style.pointerEvents = 'none'
+      }
+    })
     viewApparition() // will execute at pageload
   }
 }

@@ -107,7 +107,7 @@ export default {
       opacity: 0;
       margin-left:4vW;
       z-index: 3;
-      transition: opacity 0.6s ease-in-out;
+      transition: opacity 0.2s ease-in-out;
       &--active {
         opacity: 1;
         z-index: 6;

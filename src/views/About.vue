@@ -25,6 +25,12 @@ export default {
     SideBar
   },
   mounted: function () {
+    const currentLocation = this.name
+    document.querySelectorAll('#menuItem a').forEach(element => {
+      if (element.innerHTML === currentLocation) {
+        element.style.pointerEvents = 'none'
+      }
+    })
     viewApparition()
     designersHover() // will execute at pageload
   },
@@ -66,7 +72,8 @@ export default {
           resume: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
           img: 'man.png'
         }
-      ]
+      ],
+      name: 'About'
     }
   }
 }
@@ -122,8 +129,8 @@ export default {
       height: 85vh;
       margin-top: 15vh;
       img{
-        width: 40vw;
-        margin-left: 3vw;
+        height: 80vh;
+        margin-left: 5vw;
       }
     }
   }

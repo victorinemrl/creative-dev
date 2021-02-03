@@ -1,10 +1,12 @@
-import { Scene, PerspectiveCamera, WebGLRenderer, AmbientLight, SpotLight, TextureLoader, SpriteMaterial, Sprite, PlaneGeometry, MeshBasicMaterial, Mesh, CircleGeometry } from 'three'
+import { Scene, PerspectiveCamera, WebGLRenderer, AmbientLight, SpotLight, TextureLoader, SpriteMaterial, Sprite, PlaneGeometry, MeshBasicMaterial, Mesh, CircleGeometry, Raycaster, Vector2 } from 'three'
 import Dots from './objects/dots/Dots'
 
 export default class Webgl {
   constructor () {
     this.start = this.start.bind(this)
     this.onResize = this.onResize.bind(this)
+    this.onMouseMove = this.onMouseMove.bind(this)
+    this.select = this.select.bind(this)
 
     this.scene = new Scene()
     this.camera = new PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000)
@@ -17,6 +19,9 @@ export default class Webgl {
     this.spotlight.position.set(10, 10, -10)
     this.scene.add(this.spotlight)
     this.camera.position.z = 5
+
+    this.raycaster = new Raycaster()
+    this.mouse = new Vector2()
 
     let geometry = new PlaneGeometry(2, 2, 2)
     let material = new MeshBasicMaterial({ color: 0x7ea58a })
@@ -70,6 +75,28 @@ export default class Webgl {
     this.time = 0
 
     window.addEventListener('resize', this.onResize)
+    window.addEventListener('mousemove', this.onMouseMove, false)
+    window.addEventListener('mouseover', this.select, false)
+  }
+
+  onMouseMove (event) {
+    this.mouse.x = (event.clientX / window.innerWidth) * 2 - 1
+    this.mouse.y = -(event.clientY / window.innerHeight) * 2 + 1
+  }
+
+  select (event) {
+    this.raycaster.setFromCamera(this.mouse, this.camera)
+    let right = true
+    // calculate objects intersecting the picking ray
+    const intersects = this.raycaster.intersectObjects(this.scene.children)
+    for (let i = 0; i < intersects.length; i++) {
+      if (right) {
+        intersects[i].object.position.x += 1
+        right = false
+      } else {
+        intersects[i].object.position.x -= 1
+      }
+    }
   }
 
   onResize () {

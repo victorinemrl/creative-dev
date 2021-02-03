@@ -5,9 +5,9 @@
         <ul id="menuItem">
             <li><a v-on:click="goToHome">Home</a></li>
             <li><a v-on:click="goToAbout">About</a></li>
-            <li><a href="">Workshop</a></li>
-            <li><a href="">Designers</a></li>
-            <li><a href="">Schedule</a></li>
+            <li><a disabled="disabled">Workshop</a></li>
+            <li><a disabled="disabled">Designers</a></li>
+            <li><a disabled="disabled">Schedule</a></li>
         </ul>
         <div id="footer">
             <div>
