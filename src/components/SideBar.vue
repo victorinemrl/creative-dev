@@ -1,12 +1,14 @@
 <template>
   <div class="sideBar">
+    <div class="loader">
+    </div>
     <div class="sideBarContent">
       <div class="burger menuIcons">
         <span></span>
       </div>
       <vs-icon icon="facebook" color="#342D35" class="menuIcons"></vs-icon>
     </div>
-    <Menu ref="menu" class="hide"/>
+    <Menu ref="menu"/>
   </div>
 </template>
 
@@ -30,6 +32,18 @@ export default {
       display: flex;
       flex-direction: row;
     }
+    .loader{
+      position:absolute;
+      width: 0vw;
+      height: 100vh;
+      z-index: 4;
+      background-color:#FCE1DD;
+      transition: width 1s;
+      &--active {
+        width: 100%;
+        transition-delay: 0s;
+      }
+    }
     .sideBarContent{
         z-index: 10;
         width: 4vw;
@@ -39,7 +53,7 @@ export default {
         text-align: center;
         display: flex;
         flex-direction: column;
-        transition: background-color 1s ease-in-out;
+        transition: background-color 0.2s ease-in-out;
 
         .burger{
           width: 30%;
@@ -89,11 +103,16 @@ export default {
           font-size: x-large;
         }
     }
-    .hide{
-      display: none;
-    }
     .menu{
+      opacity: 0;
       margin-left:4vW;
+      z-index: 3;
+      transition: opacity 0.6s ease-in-out;
+      &--active {
+        opacity: 1;
+        z-index: 6;
+        transition-delay: 0.3s;
+      }
     }
     .pinkBg{
           background-color: #FCE1DD;

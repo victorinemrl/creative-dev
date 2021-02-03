@@ -4,7 +4,9 @@ import bg from '@/assets/bg.png'
 
 export const designersHover = () => {
   const allDesigners = document.querySelectorAll('.designers')
+  console.log(allDesigners)
   allDesigners.forEach(element => element.addEventListener('mouseover', function (event) {
+    console.log('HAAAA')
     let index = 0
     for (let i = 0; i < allDesigners.length; i++) {
       const keyTmp = allDesigners[i].getAttribute('id')
@@ -81,10 +83,28 @@ export const designersHover = () => {
 export const burgerAnimation = () => {
   const burger = document.querySelector('.burger')
   const menu = document.querySelector('.menu')
+  const loader = document.querySelector('.loader')
   burger.addEventListener('click', () => {
     burger.classList.toggle('active')
-    menu.classList.toggle('hide')
+    menu.classList.toggle('menu--active')
+    loader.classList.toggle('loader--active')
     document.querySelector('.sideBarContent').classList.toggle('pinkBg')
-    console.log(burger.classList)
   })
+}
+export const menuAnimation = () => {
+  const menuItem = document.querySelectorAll('#menuItem li a')
+  const burger = document.querySelector('.burger')
+  const menu = document.querySelector('.menu')
+  const loader = document.querySelector('.loader')
+  menuItem.forEach(element => element.addEventListener('click', () => {
+    burger.classList.toggle('active')
+    menu.classList.toggle('menu--active')
+    loader.classList.toggle('loader--active')
+    document.querySelector('.sideBarContent').classList.toggle('pinkBg')
+  }))
+}
+
+export const viewApparition = () => {
+  const view = document.querySelector('.view')
+  setTimeout(function () { view.classList.toggle('view--appear') }, 1000)
 }

@@ -1,7 +1,7 @@
 <template>
   <div class="about">
     <SideBar ref="sideBar"/>
-    <div class="aboutPageContent">
+    <div class="aboutPageContent view">
       <div class="aboutPageText">
         <h1>Workshop for designers</h1>
         <div v-for="designer in designers" :key="designer.name" :id="designer.name" :src="designer.img" class="designers">
@@ -17,7 +17,7 @@
 </template>
 <script>
 import SideBar from '@/components/SideBar.vue'
-import { designersHover } from '../scripts/scripts'
+import { designersHover, viewApparition } from '../scripts/scripts'
 
 export default {
   name: 'Home',
@@ -25,6 +25,7 @@ export default {
     SideBar
   },
   mounted: function () {
+    viewApparition()
     designersHover() // will execute at pageload
   },
   data () {
@@ -80,6 +81,8 @@ export default {
   .aboutPageContent{
     display: flex;
     flex-direction: row;
+    z-index: 3;
+    transition: opacity 0.8s;
 
     .aboutPageText{
       margin-left:10vw;
@@ -97,10 +100,13 @@ export default {
         display:none;
       }
       .designers{
-        padding: 2%;
+        margin: 2%;
+        background: linear-gradient(to top, #FCE1DD 0%, #FCE1DD 100%, transparent 5px) no-repeat;
+        background-size: 0 100%;
+        transition: background-size .8s;
       }
       .designers:hover{
-        background-color: #FCE1DD;
+        background-size: 100% 100%;
         h2{
           font-size: xx-large;
           font-weight: 300;
@@ -119,6 +125,13 @@ export default {
         width: 40vw;
         margin-left: 3vw;
       }
+    }
+  }
+  .view{
+    opacity:0;
+     &--appear {
+        opacity: 1;
+        transition-delay: 0.3s;
     }
   }
 }

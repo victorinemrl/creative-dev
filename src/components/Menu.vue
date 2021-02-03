@@ -3,8 +3,8 @@
     <vs-button type="filled" color="#342D35" id="getTicketButton"> Get Ticket</vs-button>
     <div class="menuContent">
         <ul id="menuItem">
-            <li><a href="">Home</a></li>
-            <li><a href="">About</a></li>
+            <li><a v-on:click="goToHome">Home</a></li>
+            <li><a v-on:click="goToAbout">About</a></li>
             <li><a href="">Workshop</a></li>
             <li><a href="">Designers</a></li>
             <li><a href="">Schedule</a></li>
@@ -32,11 +32,26 @@
 
 <script>
 import Newsletter from '@/components/Newsletter.vue'
+import router from '../router/index'
+import { menuAnimation, viewApparition } from '../scripts/scripts'
 
 export default {
   name: 'Menu',
   components: {
     Newsletter
+  },
+  methods: {
+    goToAbout: () => {
+      viewApparition()
+      setTimeout(function () { router.push({ name: 'About' }) }, 1500)
+    },
+    goToHome: () => {
+      viewApparition()
+      setTimeout(function () { router.push({ name: 'Home' }) }, 1500)
+    }
+  },
+  mounted: function () {
+    menuAnimation() // will execute at pageload
   }
 }
 </script>
@@ -48,7 +63,7 @@ export default {
     width:96vw;
     height: 100vh;
     z-index: 9;
-    background-color:#FCE1DD;
+    //background-color:#FCE1DD;
 
     #getTicketButton{
         border-radius: 0;
@@ -73,6 +88,7 @@ export default {
                 letter-spacing: 3px;
                 a{
                     color:#342D35;
+                    cursor: pointer;
                     background: linear-gradient(to top, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 40%, transparent 5px) no-repeat;
                     background-size: 0 100%;
                     transition: background-size .5s;

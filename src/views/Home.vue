@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <SideBar ref="sideBar"/>
-    <div class="homeContent">
+    <div class="homeContent view">
       <HomeCanvas ref="homeCanvas"/>
       <div class="homeContentText">
         <h1>Inside out</h1>
@@ -17,6 +17,7 @@
 import SideBar from '@/components/SideBar.vue'
 import HomeCanvas from '@/components/HomeCanvas.vue'
 import router from '../router/index'
+import { viewApparition } from '../scripts/scripts'
 export default {
   name: 'Home',
   components: {
@@ -25,9 +26,12 @@ export default {
   },
   methods: {
     goToAbout: () => {
-      console.log('coucou')
+      viewApparition()
       router.push({ name: 'About' })
     }
+  },
+  mounted: function () {
+    viewApparition() // will execute at pageload
   }
 }
 </script>
@@ -40,6 +44,7 @@ export default {
   .homeContent{
     display: flex;
     flex-direction: row;
+    transition: opacity 0.8s;
     .homeContentText{
       margin-left:20%;
       margin-top:20vh;
@@ -66,6 +71,13 @@ export default {
     }
     .homeCanvas{
       z-index: 0;
+    }
+  }
+  .view{
+    opacity:0;
+     &--appear {
+        opacity: 1;
+        transition-delay: 0.3s;
     }
   }
 }

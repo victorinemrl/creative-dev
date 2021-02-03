@@ -3,7 +3,6 @@ import { MeshBasicMaterial, Mesh, CircleGeometry, Vector2 } from 'three'
 export default class Dots {
   constructor (x, y) {
     this.createDots = this.createDots.bind(this)
-    console.log(x)
     this.position = new Vector2(x, y)
   }
 
